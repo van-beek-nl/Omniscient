@@ -1,6 +1,6 @@
 # Omniscient
 
-[![GitHub release](https://img.shields.io/github/release/van-beek-nl/omniscient.svg)](https://github.com/van-beek-nl/omniscient/releases/)
+[![GitHub release](https://img.shields.io/github/v/release/van-beek-nl/omniscient)](https://github.com/van-beek-nl/omniscient/releases/)
 
 An Omnis Studio error logger. Built to resilliently log errors with minimal performance impact.
 
