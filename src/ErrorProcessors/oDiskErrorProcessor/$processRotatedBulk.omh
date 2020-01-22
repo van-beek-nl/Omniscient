@@ -1,0 +1,46 @@
+Calculate lvFileName as con(cvRotatedFilePrefix,pIdentifier,cvFileExtension)
+Calculate lvFilePath as con(ivFilePath,lvFileName)
+
+If not(FileOps.$doesfileexist(lvFilePath))
+	Quit method
+End If
+
+Do ivProcessingFileList.$add(lvFileName)
+
+Do lvFileOps.$openfile(lvFilePath)
+Do lvFileOps.$readcharacter(kUniTypeAnsiLatin1,lvErrors)
+Do lvFileOps.$closefile()
+
+Calculate lvErrors as con("[",lvErrors,"]")
+
+Quit method lvErrors
+
+;  Calculate lvLogFileBasePath as con(ivFilePath,ivFileBasename)
+;  Calculate lvErrors as con("[",kCr,kLf)
+;
+;  # Append logs to lvErrors
+;  Do method getOldestRotation Returns lvMaxLogFileNum
+;  For lvLoopNum from lvMaxLogFileNum to 1 step -1
+;  Calculate lvLoopFilePath as con(lvLogFileBasePath,".",lvLoopNum,cvFileExtension)
+;  Read log file
+;  Do lvFileOps.$openfile(lvLoopFilePath)
+;  Do lvFileOps.$readcharacter(kUniTypeAnsiLatin1,lvLoopErrors)
+;  Do lvFileOps.$closefile()
+;
+;  Append comma and \r\n to the previous line
+;  If not(lvLoopNum=lvMaxLogFileNum)
+;  Calculate lvLoopErrors as con(",",kCr,kLf,lvLoopErrors)
+;  End If
+;
+;  Quit if lvErrors would become too large
+;  If len(lvErrors)+lvLoopErrors>lvMaxFileSize-1
+;  Break to end of loop
+;  End If
+;
+;  Append to lvErrors
+;  Calculate lvErrors as con(lvErrors,lvLoopErrors)
+;  End For
+;
+;  Calculate lvErrors as con(lvErrors,kCr,kLf,"]")
+
+;  Quit method lvErrors

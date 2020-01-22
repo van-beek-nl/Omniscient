@@ -1,0 +1,51 @@
+[
+	{
+		"name": "$populateHeaders",
+		"ident": 0,
+		"order": 3,
+		"pvardefs": [
+			{
+				"name": "pSentryVersion",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pSdkIdentifier",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pPubKey",
+				"order": 6,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvHeaders",
+				"order": 1,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0,
+				"desc": "A list of headers to send to Sentry."
+			},
+			{
+				"name": "lvHeaderString",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "A string representing the X-Sentry-Auth header value."
+			}
+		]
+	}
+]

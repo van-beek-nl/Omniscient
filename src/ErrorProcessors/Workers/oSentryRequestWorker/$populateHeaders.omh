@@ -1,0 +1,13 @@
+;  Create header string
+Calculate lvHeaderString as con(lvHeaderString,con("Sentry sentry_version=",pSentryVersion,","))
+Calculate lvHeaderString as con(lvHeaderString,"sentry_client=",pSdkIdentifier,",")
+Calculate lvHeaderString as con(lvHeaderString,"sentry_key=",pPubKey)
+
+;  Prepare header list
+Do lvHeaders.$cols.$add('Key',kCharacter,kSimplechar)
+Do lvHeaders.$cols.$add('Value',kCharacter,kSimplechar)
+Do lvHeaders.$add("X-Sentry-Auth",lvHeaderString)
+Do lvHeaders.$add("content-type","application/json")
+Do lvHeaders.$add("User-Agent",pSdkIdentifier)
+
+Quit method lvHeaders

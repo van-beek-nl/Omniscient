@@ -1,0 +1,29 @@
+If not(pIsOk)
+	Do code method cUtilities/$traceLog (con("Bulk ",pIdentifier," had no successfully processed errors"),"warn")
+Else
+	;  Send all unprocessed errors (if any) back to the source processor
+	If len(pUnprocessedErrors)>0
+		Do code method cUtilities/$traceLog (con("Unprocessed -> ",ivSourceErrorProcessor.$getName()),"warn")
+		Do ivSourceErrorProcessor.$processErrorBulk(OWEB.$makeuuid(kFalse),pUnprocessedErrors)
+	End If
+	
+	Do code method cUtilities/$traceLog (con(ivSourceErrorProcessor.$getName()," -> Deleted - bulk ",pIdentifier))
+End If
+
+;  Tell the source processor that the target is done, and whether it was successful
+Do ivSourceErrorProcessor.$onErrorBulkProcessed(pIdentifier,pIsOk)
+
+Calculate ivIsProcessing as kFalse
+If not(ivProcessingTimer.$autoreset)
+	;  Calculate the appropriate timer value for the next automatic start of processing
+	If pIsOk     ;; Target was successful, reset timer multiplier
+		Calculate ivProcessingTimerMultiplier as 1
+	Else If ivProcessingTimerMultiplier<ivMaxProcessingTimerMultiplier     ;; Target was unsuccessful and timer multiplier is lower than the maximum allowed multiplier
+		Calculate ivProcessingTimerMultiplier as ivProcessingTimerMultiplier*2
+		If ivProcessingTimerMultiplier>ivMaxProcessingTimerMultiplier     ;; Prevent the multiplier from going above its maximum allowed value
+			Calculate ivProcessingTimerMultiplier as ivMaxProcessingTimerMultiplier
+		End If
+	End If
+	
+	Do method startProcessingCountdown (ivProcessingTimerValue*ivProcessingTimerMultiplier)
+End If

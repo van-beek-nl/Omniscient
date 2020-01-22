@@ -1,0 +1,7 @@
+Calculate ivHostname as pHostname
+Calculate ivDatabaseName as pDatabaseName
+Calculate ivUsername as pUsername
+Calculate ivPassword as pPassword
+Calculate ivPort as pPort
+
+Do inherited

@@ -1,0 +1,5 @@
+If ivDatabaseSession.$connectstatus()=kPgSqlConnectionBad
+	Do ivDatabaseSession.$reset()
+End If
+
+Quit method ivDatabaseSession

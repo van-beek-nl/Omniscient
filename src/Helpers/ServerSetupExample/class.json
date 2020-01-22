@@ -1,0 +1,48 @@
+{
+	"classtype": "kTask",
+	"internalversion": 6,
+	"tvardefs": [
+
+	],
+	"cvardefs": [
+		{
+			"name": "cvOmniscient",
+			"order": 3,
+			"type": "kObjectref",
+			"subtype": "oOmniscient",
+			"sublen": 0
+		},
+		{
+			"name": "cvSentryErrorProcessor",
+			"order": 2,
+			"type": "kObjectref",
+			"subtype": "oSentryErrorProcessor",
+			"sublen": 0
+		},
+		{
+			"name": "cvSerialDatabaseErrorProcessor",
+			"order": 1,
+			"type": "kObjectref",
+			"subtype": "oSerialDatabaseErrorProcessor",
+			"sublen": 0
+		}
+	],
+	"ivardefs": [
+
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-07-08 10:19:32",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2020-01-22 09:07:47",
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

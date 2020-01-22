@@ -1,0 +1,67 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 75,
+	"superclass": "Omniscient.oSplitBufferedErrorProcessor",
+	"designtaskname": "",
+	"cvardefs": [
+		{
+			"name": "cvSdkName",
+			"order": 1,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\"omniscient\"",
+			"desc": "Sentry client name."
+		},
+		{
+			"name": "cvSdkVersion",
+			"order": 2,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\"1.0.0\"",
+			"desc": "Sentry client version."
+		},
+		{
+			"name": "cvSentryVersion",
+			"order": 3,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\"7\"",
+			"desc": "Sentry API version."
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ivEndpointUrl",
+			"order": 9,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		},
+		{
+			"name": "ivRequestMethod",
+			"order": 1,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-06-04 07:25:31",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-03 14:01:44",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

@@ -1,0 +1,21 @@
+If isclear(pErrors)
+	Quit method kFalse
+End If
+
+;  Parse the bulk as a JSON object
+Do cvJsonParser.$parse(pErrors,lvJson)
+
+;  Bulks have to be an array, otherwise there wouldn't be anything to split them on
+If not(lvJson.$isarray())
+	Quit method kFalse
+End If
+
+Do $cinst.$onSplitBulkProcessStarted(pIdentifier,lvJson.$size(),pCallbackObj,pCallbackName)
+
+;  Loops through all JSON objects in the JSON array, writes each error back to a string, and calls $cinst.$processError with the error string
+For lvLoopNum from 0 to lvJson.$size()-1 step 1
+	Do cvJsonWriter.$write(lvJson.$get(lvLoopNum)) Returns lvError
+	Do $cinst.$processError(pIdentifier,lvError,$cinst.$objref,"$onSplitBulkProcessFinished")
+End For
+
+Quit method kTrue

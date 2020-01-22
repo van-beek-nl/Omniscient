@@ -1,0 +1,3 @@
+If $cinst.$worker().$validref()
+	Do $cinst.$worker().$cancel()
+End If

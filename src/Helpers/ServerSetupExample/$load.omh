@@ -1,0 +1,6 @@
+;  Instantiate error processor instances
+Do $clib.$objects.oSentryErrorProcessor.$newref("sentry.url.com","project.id","public.key") Returns cvSentryErrorProcessor
+Do $clib.$objects.oSerialDatabaseErrorProcessor.$newref("127.0.0.1","omniscient","postgres","123") Returns cvSerialDatabaseErrorProcessor
+
+;  Create and init Omniscient
+Do $clib.$objects.oOmniscient.$newref(cvSerialDatabaseErrorProcessor,cvSentryErrorProcessor,kTrue,10000) Returns cvOmniscient

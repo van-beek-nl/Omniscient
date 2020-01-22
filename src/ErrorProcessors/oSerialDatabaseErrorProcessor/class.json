@@ -1,0 +1,55 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 43,
+	"superclass": "Omniscient.oBaseErrorProcessor",
+	"designtaskname": "",
+	"cvardefs": [
+		{
+			"name": "cvJsonParser",
+			"order": 1,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\Reader",
+			"sublen": 0
+		},
+		{
+			"name": "cvJsonWriter",
+			"order": 2,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\StyledWriter",
+			"sublen": 0
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ivDatabaseSession",
+			"order": 6,
+			"type": "kObject",
+			"subtype": ".PGSQLDAM.PGSQLSESS",
+			"sublen": 0
+		},
+		{
+			"name": "ivProcessId",
+			"order": 1,
+			"type": "kInteger",
+			"subtype": "k32bitint",
+			"sublen": 0,
+			"initval": "-1"
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-06-18 10:46:38",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-09 08:56:28",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

@@ -1,0 +1,11 @@
+If pResults.$linecount>0
+	Calculate lvIsOk as pResults.1.Errors.$linecount<=0
+	
+	If lvIsOk&not(isclear(pResults.1.Results))&pResults.1.Results.$linecount>0
+		Calculate lvResult as pResults.1.Results
+	End If
+End If
+
+If not(isclear(ivCallbackObj))
+	Do ivCallbackObj.[ivCallbackName](lvIsOk,lvResult)
+End If

@@ -1,0 +1,29 @@
+If pNumStackLinesToIgnore<0
+	Quit method lvMethodStack
+End If
+
+Calculate lvMethodStack as sys(192)
+
+While lvMethodStack.$linecount>0
+	Calculate lvMethodStack.$line as 1
+	
+	If lvCountStarted
+		Calculate lvLoopNum as lvLoopNum+1
+		If lvLoopNum>=pNumStackLinesToIgnore
+			Calculate lvBreakMethodStackLoop as kTrue
+		End If
+	Else If lvMethodStack.classitem.$class().$name()="oOmniscient"&lvMethodStack.method="$catchError"
+		Calculate lvCountStarted as kTrue
+		If lvLoopNum>=pNumStackLinesToIgnore     ;; Instantly break if pNumStackLinesToIgnore is 0
+			Calculate lvBreakMethodStackLoop as kTrue
+		End If
+	End If
+	
+	Do lvMethodStack.$remove(lvMethodStack.$line)
+	
+	If lvBreakMethodStackLoop
+		Break to end of loop
+	End If
+End While
+
+Quit method lvMethodStack

@@ -1,0 +1,11 @@
+Calculate lvSession as $cinst.$$session()
+Calculate lvStatement as lvSession.$newstatement()
+Do lvStatement.$execdirect("UPDATE omniscient SET processid = @[ivProcessId] WHERE id = (SELECT id FROM omniscient WHERE processid IS NULL OR processid NOT IN (SELECT pid FROM pg_stat_activity) ORDER BY processid IS NULL DESC, id ASC LIMIT 1 FOR UPDATE) RETURNING logidentifier, json;") Returns lvIsOk
+
+If lvIsOk
+	Do lvStatement.$fetch(lvResult)
+End If
+
+If pCallbackObj.$validref()
+	Do pCallbackObj.[pCallbackName](lvIsOk,lvResult.logidentifier,lvResult.json)
+End If

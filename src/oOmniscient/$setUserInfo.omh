@@ -1,0 +1,4 @@
+;  Calculate ivAppVersion as pAppVersion
+Calculate ivUserId as pUserId
+Calculate ivUserName as pUserName
+Calculate ivUserEmail as pUserEmail

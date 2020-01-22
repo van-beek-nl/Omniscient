@@ -1,0 +1,6 @@
+;  Cancel all running requests
+For ivRequestBuffer from 1 to ivRequestBuffer.$linecount step 1
+	Do ivRequestBuffer.request.$cancel()
+End For
+
+Do ivRequestBuffer.$clear()

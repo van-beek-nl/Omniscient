@@ -1,0 +1,3 @@
+;  Enter your initialization code here
+Calculate $cwind.$objs.errorSeverity.$line as 2
+Calculate $cwind.$objs.includeStracktraceCheckbox.$contents as 1

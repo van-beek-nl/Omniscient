@@ -1,0 +1,6 @@
+Set reference ivCallbackObj to pCallbackObj
+Calculate ivCallbackName as pCallbackName
+
+Do $cinst.$worker().$start($cinst.$ref,"$completed") Returns lvIsOk
+Calculate lvTest as $cinst.$worker().$errortext
+Quit method lvIsOk

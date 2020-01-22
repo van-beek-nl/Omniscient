@@ -1,0 +1,31 @@
+If ivFileIsNew
+	Quit method
+End If
+
+If ivFileOps.$isopen()
+	;  Do ivFileOps.$writecharacter(kUniTypeAnsiLatin1,con(kCr,kLf,"]"),kTrue)
+	Do ivFileOps.$closefile()
+End If
+
+Calculate lvLogFilePath as con(ivFilePath,ivFileBasename,cvFileExtension)
+
+If not(FileOps.$doesfileexist(lvLogFilePath))
+	Quit method
+End If
+
+;  Calculate lvLogFileBasePath as con(ivFilePath,ivFileBasename)
+
+;  Do method getOldestRotation Returns lvMaxLogFileNum
+;  For lvLoopNum from lvMaxLogFileNum to 1 step -1
+;  Rename from <fileBaseName>.<num>.<ext> to <fileBaseName>.<num + 1>.<ext>
+;  Calculate lvLoopFilePath as con(lvLogFileBasePath,".",lvLoopNum,cvFileExtension)
+;  Do FileOps.$rename(lvLoopFilePath,con(lvLogFileBasePath,".",lvLoopNum+1,cvFileExtension))
+;  End For
+;
+;  Rename active log file to <fileBaseName>.1.<ext>
+;  Do FileOps.$rename(con(lvLogFileBasePath,cvFileExtension),con(lvLogFileBasePath,".1",cvFileExtension))
+
+Do FileOps.$rename(lvLogFilePath,con(ivFilePath,cvRotatedFilePrefix,OWEB.$makeuuid(kFalse),cvFileExtension))
+
+Calculate ivNumErrorsInLog as 0
+Do method $openLogFile

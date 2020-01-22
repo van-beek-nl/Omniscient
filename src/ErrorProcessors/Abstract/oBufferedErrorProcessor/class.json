@@ -1,0 +1,42 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 56,
+	"superclass": "oBaseErrorProcessor",
+	"designtaskname": "",
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "ivCurrentRequestId",
+			"order": 2,
+			"type": "kInteger",
+			"subtype": "k32bitint",
+			"sublen": 0,
+			"initval": "0"
+		},
+		{
+			"name": "ivRequestBuffer",
+			"order": 1,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-06-04 11:31:38",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-09 08:46:51",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 28,
+	"superclass": ".OW3.OW3 Worker Objects\\HTTPClientWorker",
+	"designtaskname": "",
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "ivCallbackName",
+			"order": 1,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"desc": "The name of the method that will be called when this request succeeds."
+		},
+		{
+			"name": "ivCallbackObj",
+			"order": 2,
+			"type": "kItemref",
+			"subtype": "",
+			"sublen": 0,
+			"desc": "The instance that contains the callback method."
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-06-04 07:28:35",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-03 14:01:42",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

@@ -1,0 +1,18 @@
+;  Add some default results to the results row
+
+Do pResults.$cols.$addbefore(1,"pIsOk",kBoolean)
+Calculate pResults.pIsOk as pIsOk
+
+If not(isclear(ivIdentifier))
+	Do pResults.$cols.$addafter(1,"identifier",kCharacter)
+	Calculate pResults.identifier as ivIdentifier
+End If
+
+If not(pIsOk)&not(isclear(ivError))
+	Do pResults.$cols.$addafter(2,"error",kCharacter)
+	Calculate pResults.error as ivError
+End If
+
+If not(isclear(ivCallbackObj))
+	Do ivCallbackObj.[ivCallbackName](ivRequestId,pResults)
+End If

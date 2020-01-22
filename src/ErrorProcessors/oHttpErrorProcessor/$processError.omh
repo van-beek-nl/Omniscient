@@ -1,0 +1,10 @@
+Do $cinst.$$instantiateRequest(pIdentifier,pError) Returns lvRequest
+Do $cinst.$onRequestStarted(lvRequest,pCallbackObj,pCallbackName) Returns lvRequestId
+
+If lvRequest.$start($cinst.$ref,"$onRequestFinished")
+	Quit method kTrue
+Else
+	Do code method cUtilities/$traceLog (lvRequest.$errortext)
+	Do $cinst.$onRequestFinished(lvRequestId,kFalse)
+	Quit method kFalse
+End If

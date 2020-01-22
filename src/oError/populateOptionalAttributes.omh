@@ -1,0 +1,24 @@
+Calculate lvPlatformString as platform()
+Switch platform()
+	Case 'W'
+		Calculate lvPlatformString as "Windows 95/98/ME"
+	Case 'N'
+		Calculate lvPlatformString as "Windows NT+"
+	Case 'X'
+		Calculate lvPlatformString as "macOS"
+	Case 'U'
+		Calculate lvPlatformString as "Linux"
+	Default
+		Calculate lvPlatformString as "Unknown OS"
+End Switch
+
+Calculate lvOmnisUser as sys(4)
+If len(lvOmnisUser)=0
+	Calculate lvOmnisUser as "Unknown"
+End If
+
+Calculate lvTagsJson as ivJson.$get("tags")
+Do lvTagsJson.$get("operating-system").$set(lvPlatformString)
+Do lvTagsJson.$get("omnis-version").$set(sys(1))
+
+Quit method

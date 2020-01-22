@@ -1,0 +1,3 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	Do code method ServerSetupExample.$reset
+	Do code method ClientSetupExample.$reset

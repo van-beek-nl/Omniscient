@@ -1,0 +1,81 @@
+[
+	{
+		"name": "$callWithRowArgs",
+		"ident": 0,
+		"order": 2,
+		"notes": "Call the given pCallbackName method on pCallbackObj with the values every column in the given pArgs converted to method parameters.",
+		"pvardefs": [
+			{
+				"name": "pCallbackObj",
+				"order": 1,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1,
+				"desc": "Callback object"
+			},
+			{
+				"name": "pCallbackName",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "Method name of method to call on callback object"
+			},
+			{
+				"name": "pArgs",
+				"order": 3,
+				"type": "kRow",
+				"subtype": "",
+				"sublen": 0,
+				"param": 3,
+				"desc": "Parameters as a row"
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvFunctionCall",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lvLoopNum",
+				"order": 4,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$traceLog",
+		"ident": 1,
+		"order": 3,
+		"notes": "Omniscient trace log logging",
+		"pvardefs": [
+			{
+				"name": "pMessage",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pLevel",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"initval": "\"info\""
+			}
+		],
+		"lvardefs": [
+
+		]
+	}
+]

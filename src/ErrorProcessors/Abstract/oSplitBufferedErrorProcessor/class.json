@@ -1,0 +1,47 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 25,
+	"superclass": "oBufferedErrorProcessor",
+	"designtaskname": "",
+	"cvardefs": [
+		{
+			"name": "cvJsonParser",
+			"order": 1,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\Reader",
+			"sublen": 0
+		},
+		{
+			"name": "cvJsonWriter",
+			"order": 2,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\StyledWriter",
+			"sublen": 0
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ivSplitBuffer",
+			"order": 1,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-06-26 13:52:52",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-09 08:55:46",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

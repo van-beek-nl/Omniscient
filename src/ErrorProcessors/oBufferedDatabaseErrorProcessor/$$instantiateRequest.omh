@@ -1,0 +1,17 @@
+Do $objects.oDatabaseWorker.$newref() Returns lvWorker
+
+Calculate lvRequestInit.hostname as ivHostname
+Calculate lvRequestInit.database as ivDatabaseName
+Calculate lvRequestInit.username as ivUsername
+Calculate lvRequestInit.password as ivPassword
+Calculate lvRequestInit.query as pStatement
+Calculate lvRequestInit.bindvars as pBindVars
+
+Do lvWorker.$init(lvRequestInit)
+Do lvWorker.$sessionref(lvSession)
+Calculate lvSession.$port as 5432
+
+Do $objects.oOmniscientRequest.$newref(lvWorker) Returns lvRequest
+Do lvRequest.$init(pIdentifier,pError)
+
+Quit method lvRequest

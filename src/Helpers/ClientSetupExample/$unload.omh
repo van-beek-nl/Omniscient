@@ -1,0 +1,7 @@
+Unload error handler oOmniscient/$catchGlobalError
+
+Do cvOmniscient.$deleteref()
+Calculate cvOmniscient as #NULL
+
+Do cvBufferedDatabaseErrorProcessor.$deleteref()
+Do cvDiskErrorProcessor.$deleteref()

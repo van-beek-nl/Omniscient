@@ -1,0 +1,13 @@
+If not(isclear(pHostname))&len(pHostname)>0
+	Calculate ivDatabaseSession.$port as pPort
+	Calculate ivDatabaseSession.$database as pDatabaseName
+	Calculate ivDatabaseSession.$quotedidentifier as kFalse
+	Do ivDatabaseSession.$logon(pHostname,pUsername,pPassword)
+End If
+
+Do $cinst.$processId() Returns ivProcessId
+If ivProcessId<=-1
+	Signal error {4101471,"Could not fetch process ID from the database"}
+End If
+
+Do inherited

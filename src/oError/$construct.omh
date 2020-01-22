@@ -1,0 +1,22 @@
+If isclear(pErrorCode)|len(pErrorCode)<=0|pErrorCode=-1
+	Quit method
+End If
+
+If pSeverity=cvSeverityFatal
+	Calculate lvSeverityString as "fatal"
+Else If pSeverity=cvSeverityError
+	Calculate lvSeverityString as "error"
+Else If pSeverity=cvSeverityWarn
+	Calculate lvSeverityString as "warning"
+Else If pSeverity=cvSeverityInfo
+	Calculate lvSeverityString as "info"
+Else If pSeverity=cvSeverityDebug
+	Calculate lvSeverityString as "debug"
+Else
+	Calculate lvSeverityString as "error"
+End If
+
+Do $cinst.$$getRelevantMethodStack(pNumStackLinesToIgnore) Returns lvMethodStack
+Do method populateRequiredAttributes (pErrorCode,pErrorText,lvSeverityString,lvMethodStack)
+Do method populateOptionalAttributes (pUserId,pUserName,pUserEmail)
+Do method populateStacktrace (lvMethodStack)

@@ -1,0 +1,34 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 49,
+	"designtaskname": "",
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "ivOmnisIdentifier",
+			"order": 2,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"desc": "Omnis' identifier in <name/version> format. Sometimes sent along with errors to a remote endpoint."
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-05-29 08:00:58",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-09 08:39:54",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

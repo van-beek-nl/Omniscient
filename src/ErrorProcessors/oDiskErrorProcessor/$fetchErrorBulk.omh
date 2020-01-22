@@ -1,0 +1,5 @@
+Do method $rotateLog
+Do method $getRotatedBulkIdentifier Returns lvIdentifier
+Do method $processRotatedBulk (lvIdentifier) Returns lvErrorsString
+
+Do pCallbackObj.[pCallbackName](kTrue,lvIdentifier,lvErrorsString)

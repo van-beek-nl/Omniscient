@@ -1,0 +1,11 @@
+Do pResults.$loadcols(lvErrorCode,lvErrorInfo,lvHttpStatusCode,lvHttpStatusText,lvResponseHeaders)
+
+If not(isclear(ivCallbackObj))
+	Calculate lvIsOk as lvHttpStatusCode>=200&lvHttpStatusCode<=299
+	If not(lvIsOk)&lvHttpStatusCode>=400&lvHttpStatusCode<=499
+		Do code method cUtilities/$traceLog (con("HTTP request finished with status code ",lvHttpStatusCode,". Overriding success so no further invalid requests are sent."),"warn")
+		Calculate lvIsOk as kTrue
+	End If
+	
+	Do ivCallbackObj.[ivCallbackName](lvIsOk,pResults)
+End If

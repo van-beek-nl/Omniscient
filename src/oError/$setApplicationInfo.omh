@@ -1,0 +1,5 @@
+If not(isclear(pApplicationName))&not(isclear(pApplicationVersion))
+	Do ivJson.$get("release").$set(con(pApplicationName,"@",pApplicationVersion))
+Else
+	Do ivJson.$get("release").$clear()
+End If

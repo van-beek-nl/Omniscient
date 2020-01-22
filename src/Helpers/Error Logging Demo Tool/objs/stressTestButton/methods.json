@@ -1,0 +1,27 @@
+[
+	{
+		"name": "$event",
+		"ident": 0,
+		"order": 16384,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "lvNumErrors",
+				"order": 1,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"initval": "1000"
+			},
+			{
+				"name": "lvOmniscient",
+				"order": 2,
+				"type": "kObjectref",
+				"subtype": "oOmniscient",
+				"sublen": 0
+			}
+		]
+	}
+]

@@ -1,0 +1,12 @@
+;  Calculate request ID
+If ivCurrentRequestId>=999999
+	Calculate ivCurrentRequestId as 1
+Else
+	Calculate ivCurrentRequestId as ivCurrentRequestId+1
+End If
+
+;  Set request ID on request, add to list
+Do pRequest.$setRequestId(ivCurrentRequestId)
+Do ivRequestBuffer.$add(ivCurrentRequestId,pRequest,pCallbackObj,pCallbackName)
+
+Quit method ivCurrentRequestId

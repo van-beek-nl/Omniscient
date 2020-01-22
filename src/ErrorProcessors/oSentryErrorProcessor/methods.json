@@ -1,0 +1,96 @@
+[
+	{
+		"name": "$construct",
+		"ident": 1,
+		"order": 1,
+		"pvardefs": [
+			{
+				"name": "pHostname",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"desc": "URI at which the Sentry endpoint is located. E.g. https://sentry.example.com/"
+			},
+			{
+				"name": "pProjectId",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "The project ID provided by Sentry."
+			},
+			{
+				"name": "pPubKey",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3,
+				"desc": "The public key provided by Sentry."
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$getName",
+		"ident": 0,
+		"order": 2,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$$instantiateRequest",
+		"ident": 3,
+		"order": 3,
+		"pvardefs": [
+			{
+				"name": "pIdentifier",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pError",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvHeaders",
+				"order": 5,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lvRequest",
+				"order": 2,
+				"type": "kObjectref",
+				"subtype": "oOmniscientRequest",
+				"sublen": 0
+			},
+			{
+				"name": "lvWorker",
+				"order": 6,
+				"type": "kObjectref",
+				"subtype": "oSentryRequestWorker",
+				"sublen": 0
+			}
+		]
+	}
+]

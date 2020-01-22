@@ -1,0 +1,20 @@
+If pMethodStack.$linecount<=0
+	Quit method
+End If
+
+Calculate lvStacktraceJson as ivJson.$get("stacktrace").$get("frames")
+
+For pMethodStack.$line from pMethodStack.$linecount to 1 step -1
+	Calculate lvFrameJson as lvStacktraceJson.$get(lvLoopNum)
+	Do lvFrameJson.$get("function").$set(pMethodStack.method)
+	Do lvFrameJson.$get("module").$set(pMethodStack.methoditem.$fullname())
+	Do lvFrameJson.$get("lineno").$set(pMethodStack.line)
+	Do lvFrameJson.$get("context_line").$set(pMethodStack.linetext)
+	
+	For pMethodStack.params.$line from 1 to pMethodStack.params.$linecount step 1
+		Do method encodeString (pMethodStack.params.value) Returns lvParamValue
+		Do lvFrameJson.$get("vars").$get(pMethodStack.params.name).$set(lvParamValue)
+	End For
+	
+	Calculate lvLoopNum as lvLoopNum+1
+End For

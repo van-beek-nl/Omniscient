@@ -1,0 +1,16 @@
+Calculate lvEventId as OWEB.$makeuuid(kFalse)
+Calculate lvTimestamp as jst(loctoutc(#D),"D:y-M-DTH:N:S")
+
+Do ivJson.$get("event_id").$set(lvEventId)
+Do ivJson.$get("timestamp").$set(lvTimestamp)
+Do ivJson.$get("logger").$set("Unknown")
+Do ivJson.$get("platform").$set("omnis")
+Do ivJson.$get("level").$set(pSeverity)
+Do ivJson.$get("message").$set(con("[",pSeverity," | ",pErrorCode,"] ",pErrorText))
+
+If pMethodStack.$linecount>1
+	Calculate pMethodStack.$line as 1
+	Do ivJson.$get("culprit").$set(con(pMethodStack.methoditem.$fullname()," on line ",pMethodStack.line))
+End If
+
+Quit method

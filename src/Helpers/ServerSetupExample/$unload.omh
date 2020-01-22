@@ -1,0 +1,7 @@
+Unload error handler oOmniscient/$catchGlobalError
+
+Do cvOmniscient.$deleteref()
+Calculate cvOmniscient as #NULL
+
+Do cvSerialDatabaseErrorProcessor.$deleteref()
+Do cvSentryErrorProcessor.$deleteref()

@@ -1,0 +1,8 @@
+Calculate lvFilePath as con(ivFilePath,cvRotatedFilePrefix,pIdentifier,cvFileExtension)
+
+If FileOps.$doesfileexist(lvFilePath)
+	Do FileOps.$deletefile(lvFilePath) Returns lvErrorCode
+	Quit method lvErrorCode=0
+End If
+
+Quit method kFalse

@@ -1,0 +1,9 @@
+If pExtraData.$type=kCharacter
+	Do ivJson.$get("extra").$get("message").$set(pExtraData)
+Else If pExtraData.$type=kList
+	Do pExtraData.$sendall(ivJson.$get("extra").$get(con($sendallref.C1)).$set($sendallref.C2))
+Else If pExtraData.$type=kObject
+	If pExtraData.$valuetolist.$cando()
+		Do ivJson.$get("extra").$set(pExtraData.$root())
+	End If
+End If

@@ -1,0 +1,1 @@
+Send to trace log {[con("[Omniscient | ",upp(pLevel),"] ",pMessage)]}

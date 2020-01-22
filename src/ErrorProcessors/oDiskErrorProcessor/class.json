@@ -1,0 +1,120 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 199,
+	"superclass": "oBaseErrorProcessor",
+	"designtaskname": "",
+	"cvardefs": [
+		{
+			"name": "cvDefaultLogDirectoryName",
+			"order": 2,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\"omniscient-logs\"",
+			"desc": "The subdirectory to store logs in."
+		},
+		{
+			"name": "cvFileExtension",
+			"order": 1,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\".log.json\"",
+			"desc": "The file extension logs will have."
+		},
+		{
+			"name": "cvJsonParser",
+			"order": 4,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\Reader",
+			"sublen": 0
+		},
+		{
+			"name": "cvJsonWriter",
+			"order": 5,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\StyledWriter",
+			"sublen": 0
+		},
+		{
+			"name": "cvMaxErrorsInLog",
+			"order": 6,
+			"type": "kInteger",
+			"subtype": "k32bitint",
+			"sublen": 0,
+			"initval": "500"
+		},
+		{
+			"name": "cvRotatedFilePrefix",
+			"order": 3,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\"omniscient-\""
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ivFileBasename",
+			"order": 5,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\"errors\""
+		},
+		{
+			"name": "ivFileIsNew",
+			"order": 2,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0,
+			"desc": "Whether the currently opened log file is new (empty) or not."
+		},
+		{
+			"name": "ivFileOps",
+			"order": 3,
+			"type": "kObject",
+			"subtype": ".FileOps.FileOps",
+			"sublen": 0,
+			"desc": "The file handler for the currently opened log file."
+		},
+		{
+			"name": "ivFilePath",
+			"order": 4,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"desc": "The path at which the error logs will be stored."
+		},
+		{
+			"name": "ivNumErrorsInLog",
+			"order": 6,
+			"type": "kInteger",
+			"subtype": "k32bitint",
+			"sublen": 0
+		},
+		{
+			"name": "ivProcessingFileList",
+			"order": 1,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2018-11-07 16:00:22",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-03 14:00:38",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

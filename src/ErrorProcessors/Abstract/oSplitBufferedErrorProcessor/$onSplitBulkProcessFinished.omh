@@ -1,0 +1,27 @@
+Do ivSplitBuffer.$search($ref.identifier=pIdentifier,kTrue,kFalse,kFalse,kFalse)
+
+If ivSplitBuffer.$line>0
+	If pIsOk
+		Calculate ivSplitBuffer.hadSuccess as kTrue
+	Else
+		;  Collects all unsuccessfully processed errors in the split buffer's unprocessed JSON object
+		Do cvJsonParser.$parse(pError,lvJson)
+		Do ivSplitBuffer.unprocessed.$get(ivSplitBuffer.unprocessed.$size()).$set(lvJson)
+	End If
+	
+	;  If there are no more errors remaining for this bulk...
+	Calculate ivSplitBuffer.remaining as ivSplitBuffer.remaining-1
+	If ivSplitBuffer.remaining<=0
+		If not(isclear(ivSplitBuffer.callbackObj))
+			;  Write any unprocessed errors to a string...
+			If ivSplitBuffer.unprocessed.$size()>0
+				Do cvJsonWriter.$write(ivSplitBuffer.unprocessed) Returns lvUnprocessed
+			End If
+			
+			;  And call the callback object
+			Do ivSplitBuffer.callbackObj.[ivSplitBuffer.callbackName](ivSplitBuffer.hadSuccess,ivSplitBuffer.identifier,lvUnprocessed)
+		End If
+		
+		Do ivSplitBuffer.$remove(ivSplitBuffer.$line)
+	End If
+End If

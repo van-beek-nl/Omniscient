@@ -1,0 +1,29 @@
+;  Kindly stolen from http://www.studiotips.net/docs/tips/functions/fileops.html <3
+
+;  Split the path and then loop through the folders path checking each directory.
+Do FileOps.$splitpathname(pPath,lvDrivePath,lvDirectoryPath,lvFileName,lvExtension) Returns lvErrorCode
+
+;  Loop through the folders path checking to make sure each directory exists.
+Calculate lvCheckPath as lvDrivePath
+Calculate lvDirectoryPath as trim(lvDirectoryPath,kTrue,kTrue,sys(9))
+Calculate lvErrorCode as 0     ;; Preset to zero.
+
+While len(lvDirectoryPath)
+	Calculate lvNextDirectoryName as strtok('lvDirectoryPath',sys(9))
+	Calculate lvCheckPath as con(lvCheckPath,sys(9),lvNextDirectoryName)
+	
+	;  Does the directory exists?
+	If not(FileOps.$doesfileexist(lvCheckPath))
+		
+		;  Create the intervening directory.
+		Do code method cUtilities/$traceLog (con("DiskErrorProcessor: Creating directory ",lvCheckPath))
+		Do FileOps.$createdir(lvCheckPath) Returns lvErrorCode
+		If lvErrorCode
+			Break to end of loop
+		End If
+		
+	End If
+End While
+If lvErrorCode
+	Do code method cUtilities/$traceLog (con("DiskErrorProcessor: ",lvErrorCode," - Could not create directory path to ",pPath),"error")
+End If

@@ -1,0 +1,30 @@
+Calculate ivSourceErrorProcessor as pSourceErrorProcessor
+Calculate ivTargetErrorProcessor as pTargetErrorProcessor
+
+Do ivSourceErrorProcessor.$setOmnisIdentifier(con("omniscient/",cvOmniscientVersion))
+Do ivTargetErrorProcessor.$setOmnisIdentifier(con("omniscient/",cvOmniscientVersion))
+
+;  Set custom error class to use
+If not(isclear(pErrorClass))
+	Set reference ivErrorClass to pErrorClass
+End If
+
+;  Set up source processing timer
+Calculate ivProcessingTimer.$autoreset as pProcessingAutoResets
+Calculate ivProcessingTimer.$useseconds as kFalse
+Calculate ivProcessingTimer.$timervalue as pProcessingTimerValue
+Calculate ivProcessingTimerValue as pProcessingTimerValue
+Do ivProcessingTimer.$setCallback($cinst.$objref,"$onProcessCountdownFinished")
+
+;  Log initialized message
+Calculate lvTraceLogMsg as "Omniscient: Initialized. "
+If not(isclear(ivSourceErrorProcessor))
+	Calculate lvTraceLogMsg as con(lvTraceLogMsg,"Source: ",ivSourceErrorProcessor.$getName(),", ")
+End If
+If not(isclear(ivTargetErrorProcessor))
+	Calculate lvTraceLogMsg as con(lvTraceLogMsg,"Target: ",ivTargetErrorProcessor.$getName(),". ")
+End If
+Calculate lvTraceLogMsg as con(lvTraceLogMsg,"Timer autoreset = ",pProcessingAutoResets,", timer value = ",pProcessingTimerValue)
+Do code method cUtilities/$traceLog (lvTraceLogMsg)
+
+Do method startProcessingCountdown

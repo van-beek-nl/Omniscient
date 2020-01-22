@@ -1,0 +1,7 @@
+If isclear(pTimerValue)
+	Calculate pTimerValue as ivProcessingTimerValue
+End If
+
+Do ivProcessingTimer.$stoptimer()
+Calculate ivProcessingTimer.$timervalue as pTimerValue
+Do ivProcessingTimer.$starttimer()

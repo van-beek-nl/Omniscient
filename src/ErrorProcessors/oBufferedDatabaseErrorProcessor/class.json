@@ -1,0 +1,75 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 132,
+	"superclass": "oBufferedErrorProcessor",
+	"designtaskname": "",
+	"cvardefs": [
+		{
+			"name": "cvJsonParser",
+			"order": 2,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\Reader",
+			"sublen": 0
+		},
+		{
+			"name": "cvJsonWriter",
+			"order": 1,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\StyledWriter",
+			"sublen": 0
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ivDatabaseName",
+			"order": 2,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		},
+		{
+			"name": "ivHostname",
+			"order": 1,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		},
+		{
+			"name": "ivPassword",
+			"order": 4,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		},
+		{
+			"name": "ivPort",
+			"order": 5,
+			"type": "kNumber",
+			"subtype": "k0dp",
+			"sublen": 0
+		},
+		{
+			"name": "ivUsername",
+			"order": 3,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-05-29 08:22:36",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-09 08:56:15",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

@@ -1,0 +1,8 @@
+Do $clib.$objects.oSentryRequestWorker.$newref() Returns lvWorker
+Do lvWorker.$populateHeaders(cvSentryVersion,$cinst.ivOmnisIdentifier,ivPubKey) Returns lvHeaders
+Do lvWorker.$init(ivEndpointUrl,kOW3httpMethodPost,lvHeaders,pError)
+
+Calculate lvRequest as $clib.$objects.oOmniscientRequest.$newref(lvWorker)
+Do lvRequest.$init(pIdentifier,pError)
+
+Quit method lvRequest

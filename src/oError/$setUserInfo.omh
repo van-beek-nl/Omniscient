@@ -1,0 +1,4 @@
+Calculate lvUserJson as ivJson.$get("user")
+Do lvUserJson.$get("id").$set(pUserId)
+Do lvUserJson.$get("username").$set(pUserName)
+Do lvUserJson.$get("email").$set(pUserEmail)

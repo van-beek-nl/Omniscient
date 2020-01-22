@@ -1,0 +1,8 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	Prompt for input Number of errors Returns lvNumErrors (Cancel button)
+	If not(#F)
+		Quit method
+	End If
+	
+	Do code method oOmniscient/$getGlobalErrorHandler Returns lvOmniscient
+	Do lvOmniscient.$stressTest(lvNumErrors)

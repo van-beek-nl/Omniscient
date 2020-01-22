@@ -1,0 +1,594 @@
+[
+	{
+		"name": "$construct",
+		"ident": 1,
+		"order": 1,
+		"pvardefs": [
+			{
+				"name": "pErrorCode",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"initval": "-1",
+				"desc": "The error's internal error code."
+			},
+			{
+				"name": "pErrorText",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"initval": "\"Unknown error\"",
+				"desc": "The error description."
+			},
+			{
+				"name": "pSeverity",
+				"order": 4,
+				"type": "kInteger",
+				"subtype": "kShortint",
+				"sublen": 0,
+				"param": 3,
+				"initval": "cvSeverityError",
+				"desc": "The severity of the error. Valid values are defined in the class variables as constants."
+			},
+			{
+				"name": "pNumStackLinesToIgnore",
+				"order": 9,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 4
+			},
+			{
+				"name": "pUserId",
+				"order": 5,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 5
+			},
+			{
+				"name": "pUserName",
+				"order": 6,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 6
+			},
+			{
+				"name": "pUserEmail",
+				"order": 8,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 7
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvBreakMethodStackLoop",
+				"order": 7,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"initval": "kFalse"
+			},
+			{
+				"name": "lvMethodStack",
+				"order": 1,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lvSeverityString",
+				"order": 10,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"initval": "\"error\""
+			}
+		]
+	},
+	{
+		"name": "$destruct",
+		"ident": 2,
+		"order": 2,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$stringify",
+		"ident": 4,
+		"order": 3,
+		"notes": "Turns the error's JSON object into text. Optionally removes newlines/line feeds.",
+		"pvardefs": [
+			{
+				"name": "pPretty",
+				"order": 4,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1,
+				"initval": "kFalse"
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvRequestBody",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lvTestJson",
+				"order": 2,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvTestReader",
+				"order": 1,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Reader",
+				"sublen": 0
+			},
+			{
+				"name": "lvTestString",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			}
+		]
+	},
+	{
+		"name": "$$getRelevantMethodStack",
+		"ident": 3,
+		"order": 4,
+		"notes": "Returns the relevant method stack for the error, cutting out the part where Omniscient catches the information.",
+		"pvardefs": [
+			{
+				"name": "pNumStackLinesToIgnore",
+				"order": 3,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 1,
+				"desc": "The number of additional lines to cut out AFTER cutting out the Omniscient $catchError method."
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvBreakMethodStackLoop",
+				"order": 2,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"initval": "kFalse"
+			},
+			{
+				"name": "lvCountStarted",
+				"order": 5,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"initval": "kFalse"
+			},
+			{
+				"name": "lvLoopNum",
+				"order": 4,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0
+			},
+			{
+				"name": "lvMethodStack",
+				"order": 1,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "------ Optional",
+		"ident": 0,
+		"order": 5,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		],
+		"empty": true
+	},
+	{
+		"name": "$setUserInfo",
+		"ident": 11,
+		"order": 6,
+		"notes": "Sets the ID, name, and email address of the user used in your application.\rAll parameters are optional.",
+		"pvardefs": [
+			{
+				"name": "pUserId",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pUserName",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pUserEmail",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvUserJson",
+				"order": 4,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$setApplicationInfo",
+		"ident": 12,
+		"order": 7,
+		"notes": "Sets your application's name and version in the error data. Sentry uses this information to automatically group errors by release.\rEither provide both parameters to set new information or leave them empty to clear the information.",
+		"pvardefs": [
+			{
+				"name": "pApplicationName",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pApplicationVersion",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$setLoggerInfo",
+		"ident": 16,
+		"order": 8,
+		"notes": "Sets the logger's information. Used internally by Omniscient to set the Omniscient version for Sentry.",
+		"pvardefs": [
+			{
+				"name": "pLoggerName",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pLoggerVersion",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$setExtraData",
+		"ident": 14,
+		"order": 9,
+		"notes": "Sets extra data belonging to the error. This is optional.",
+		"pvardefs": [
+			{
+				"name": "pExtraData",
+				"order": 1,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1,
+				"desc": "A field reference that is included with the data sent to Sentry if it's a string, list, or jsoncpp Value object."
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "------ Private",
+		"ident": 9,
+		"order": 10,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		],
+		"empty": true
+	},
+	{
+		"name": "populateRequiredAttributes",
+		"ident": 5,
+		"order": 11,
+		"notes": "Populates ivJson with all attributes required for a Sentry request.",
+		"pvardefs": [
+			{
+				"name": "pErrorCode",
+				"order": 9,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 1
+			},
+			{
+				"name": "pErrorText",
+				"order": 10,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pSeverity",
+				"order": 11,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3
+			},
+			{
+				"name": "pMethodStack",
+				"order": 8,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0,
+				"param": 4
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvEventId",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "A generated UUID representing the error event"
+			},
+			{
+				"name": "lvTimestamp",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "The time at which this method was called, representing when the error occurred."
+			}
+		]
+	},
+	{
+		"name": "populateOptionalAttributes",
+		"ident": 6,
+		"order": 12,
+		"pvardefs": [
+			{
+				"name": "pUserId",
+				"order": 1,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 1
+			},
+			{
+				"name": "pUserName",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pUserEmail",
+				"order": 7,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvOmnisUser",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lvPlatformString",
+				"order": 6,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lvTagsJson",
+				"order": 3,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvUserJson",
+				"order": 4,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "populateStacktrace",
+		"ident": 7,
+		"order": 13,
+		"pvardefs": [
+			{
+				"name": "pMethodStack",
+				"order": 11,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvFrameJson",
+				"order": 7,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvFrameLine",
+				"order": 5,
+				"type": "kRow",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lvFrameList",
+				"order": 4,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lvFramesBody",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "The body in which all methods in the method stack are described."
+			},
+			{
+				"name": "lvFramesJson",
+				"order": 3,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvLoopNum",
+				"order": 6,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"initval": "0"
+			},
+			{
+				"name": "lvParamsBody",
+				"order": 8,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "The body in which all parameters of the recorded method are stored as JSON. (used in loop)"
+			},
+			{
+				"name": "lvParamValue",
+				"order": 9,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "The value of the current parameter in the recorded method. (used in loop)"
+			},
+			{
+				"name": "lvStacktraceBody",
+				"order": 10,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "The body in which the stacktrace is stored as JSON."
+			},
+			{
+				"name": "lvStacktraceJson",
+				"order": 2,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "encodeString",
+		"ident": 13,
+		"order": 14,
+		"pvardefs": [
+			{
+				"name": "pString",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "------ Properties",
+		"ident": 8,
+		"order": 15,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		],
+		"empty": true
+	},
+	{
+		"name": "$eventId",
+		"ident": 10,
+		"order": 16,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	}
+]

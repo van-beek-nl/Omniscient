@@ -1,0 +1,5 @@
+;  Initialize list of requests
+Do ivRequestBuffer.$cols.$add("requestId",kInteger,k32bitint)
+Do ivRequestBuffer.$cols.$add("request",kObjectref)
+Do ivRequestBuffer.$cols.$add("callbackObject",kObjectref)
+Do ivRequestBuffer.$cols.$add("callbackName",kCharacter)

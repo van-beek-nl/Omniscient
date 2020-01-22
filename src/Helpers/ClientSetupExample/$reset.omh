@@ -1,0 +1,4 @@
+Do method $unload
+Do method $load
+
+Do code method cUtilities/$traceLog ("Reset Omniscient client example","debug")

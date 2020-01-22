@@ -1,0 +1,137 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 375,
+	"designtaskname": "",
+	"cvardefs": [
+		{
+			"name": "cvInstance",
+			"order": 1,
+			"type": "kObjectref",
+			"subtype": "oOmniscient",
+			"sublen": 0,
+			"desc": "Singleton object instance."
+		},
+		{
+			"name": "cvOmniscientVersion",
+			"order": 2,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\"1.1.0\"",
+			"desc": "Omniscient version, used to identify the SDK in Sentry."
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ivApplicationName",
+			"order": 5,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		},
+		{
+			"name": "ivApplicationVersion",
+			"order": 13,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		},
+		{
+			"name": "ivErrorClass",
+			"order": 12,
+			"type": "kItemref",
+			"subtype": "",
+			"sublen": 0,
+			"initval": "$clib.$objects.oError"
+		},
+		{
+			"name": "ivIsProcessing",
+			"order": 4,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0,
+			"initval": "kFalse"
+		},
+		{
+			"name": "ivMaxProcessingTimerMultiplier",
+			"order": 3,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0,
+			"initval": "12"
+		},
+		{
+			"name": "ivProcessingTimer",
+			"order": 1,
+			"type": "kObject",
+			"subtype": "oCallbackTimer",
+			"sublen": 0
+		},
+		{
+			"name": "ivProcessingTimerMultiplier",
+			"order": 2,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0,
+			"initval": "1"
+		},
+		{
+			"name": "ivProcessingTimerValue",
+			"order": 10,
+			"type": "kNumber",
+			"subtype": "k0dp",
+			"sublen": 0
+		},
+		{
+			"name": "ivSourceErrorProcessor",
+			"order": 8,
+			"type": "kObjectref",
+			"subtype": "oBaseErrorProcessor",
+			"sublen": 0
+		},
+		{
+			"name": "ivTargetErrorProcessor",
+			"order": 9,
+			"type": "kObjectref",
+			"subtype": "oBaseErrorProcessor",
+			"sublen": 0
+		},
+		{
+			"name": "ivUserEmail",
+			"order": 11,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		},
+		{
+			"name": "ivUserId",
+			"order": 6,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		},
+		{
+			"name": "ivUserName",
+			"order": 7,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2018-11-07 14:16:18",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2020-01-21 11:13:13",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

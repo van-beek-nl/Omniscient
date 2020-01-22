@@ -1,0 +1,19 @@
+If pIsOk
+	Calculate lvStatement as "DELETE FROM omniscient WHERE logIdentifier = @[logIdentifier]"
+Else
+	Calculate lvStatement as "UPDATE omniscient SET processid = NULL WHERE logIdentifier = @[logIdentifier]"
+End If
+
+Do lvBinds.$cols.$add("logIdentifier",kCharacter)
+Calculate lvBinds.logIdentifier as pIdentifier
+
+Do $cinst.$$instantiateRequest(lvStatement,lvBinds) Returns lvRequest
+Do $cinst.$onRequestStarted(lvRequest) Returns lvRequestId
+
+If lvRequest.$start($cinst.$ref,"$onRequestFinished")
+	Quit method kTrue
+Else
+	Do code method cUtilities/$traceLog (lvRequest.$errortext)
+	Do $cinst.$onRequestFinished(lvRequestId,kFalse)
+	Quit method kFalse
+End If

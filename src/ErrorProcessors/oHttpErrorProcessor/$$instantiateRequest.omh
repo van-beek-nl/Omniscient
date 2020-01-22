@@ -1,0 +1,7 @@
+Do $clib.$objects.oHttpRequestWorker.$newref() Returns lvWorker
+Do lvWorker.$init(ivEndpointUrl,ivRequestMethod)
+
+Do $clib.$objects.oOmniscientRequest.$newref(lvWorker) Returns lvRequest
+Do lvRequest.$init(pIdentifier,pError)
+
+Quit method lvRequest

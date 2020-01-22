@@ -1,0 +1,15 @@
+If ivIsProcessing|isclear(pIdentifier)
+	Quit method      ;; No error data found
+End If
+
+Calculate ivIsProcessing as kTrue
+
+Do code method cUtilities/$traceLog (con(ivSourceErrorProcessor.$getName()," -> ",ivTargetErrorProcessor.$getName()," - bulk ",pIdentifier))
+Do ivTargetErrorProcessor.$processErrorBulk(pIdentifier,pErrors,$cinst.$objref,"$onTargetProcessed") Returns lvIsOk
+
+If not(lvIsOk)
+	Do code method cUtilities/$traceLog ("Target rejected bulk!","error")
+	Calculate ivIsProcessing as kFalse
+End If
+
+Quit method

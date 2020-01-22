@@ -1,0 +1,6 @@
+For lvLoopNum from 1 to pArgs.$colcount step 1
+	Calculate lvFunctionCall as con(lvFunctionCall,pick(isclear(lvFunctionCall),','),nam(pArgs),'.C',lvLoopNum)
+End For
+Calculate lvFunctionCall as con(pCallbackName,'(',lvFunctionCall,')')
+
+Do pCallbackObj.[lvFunctionCall]

@@ -1,0 +1,9 @@
+;  Initialize split buffer list
+Do ivSplitBuffer.$cols.$add("identifier",kCharacter)
+Do ivSplitBuffer.$cols.$add("remaining",kInteger,k32bitint)
+Do ivSplitBuffer.$cols.$add("callbackObj",kObjectref)
+Do ivSplitBuffer.$cols.$add("callbackName",kCharacter)
+Do ivSplitBuffer.$cols.$add("hadSuccess",kBoolean)
+Do ivSplitBuffer.$cols.$add("unprocessed",kObjectref)
+
+Do inherited

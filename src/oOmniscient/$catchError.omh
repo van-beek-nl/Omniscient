@@ -1,0 +1,26 @@
+;  Ignore Omnis generic errors
+If pErrorCode>100
+	;  Set severity according to the error code. Omnis documentation says that error codes over 99.999 are to be used for errors only
+	If isclear(pSeverity)
+		Calculate lvSeverity as $clib.$objects.oError.$cvars.cvSeverityWarn
+		If pErrorCode>=100000|pErrorCode<=0
+			Calculate lvSeverity as $clib.$objects.oError.$cvars.cvSeverityError
+		End If
+	Else
+		Calculate lvSeverity as pSeverity
+	End If
+	
+	;  Instantiate error instance with error info, set user info, application info, and logger info
+	Calculate lvError as ivErrorClass.$newref(pErrorCode,pErrorText,lvSeverity,pNumStackLinesToIgnore)
+	Do lvError.$setUserInfo(ivUserId,ivUserName,ivUserEmail)
+	Do lvError.$setApplicationInfo(ivApplicationName,ivApplicationVersion)
+	Do lvError.$setLoggerInfo("omniscient",cvOmniscientVersion)
+	Do lvError.$setExtraData(pExtraData)
+	
+	;  Store the error's JSON in the source processor
+	Do $cinst.ivSourceErrorProcessor.$processError(,lvError.$stringify(),$cinst.$objref,"$onSourceProcessed")
+	
+	Quit method kTrue
+End If
+
+Quit method kFalse

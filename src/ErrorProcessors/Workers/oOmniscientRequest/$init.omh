@@ -1,0 +1,4 @@
+If not(isclear(pIdentifier))
+	Calculate ivIdentifier as pIdentifier
+	Calculate ivError as pError
+End If

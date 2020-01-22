@@ -1,0 +1,48 @@
+{
+	"classtype": "kTask",
+	"internalversion": 8,
+	"tvardefs": [
+
+	],
+	"cvardefs": [
+		{
+			"name": "cvBufferedDatabaseErrorProcessor",
+			"order": 1,
+			"type": "kObjectref",
+			"subtype": "oBufferedDatabaseErrorProcessor",
+			"sublen": 0
+		},
+		{
+			"name": "cvDiskErrorProcessor",
+			"order": 2,
+			"type": "kObjectref",
+			"subtype": "oDiskErrorProcessor",
+			"sublen": 0
+		},
+		{
+			"name": "cvOmniscient",
+			"order": 3,
+			"type": "kObjectref",
+			"subtype": "oOmniscient",
+			"sublen": 0
+		}
+	],
+	"ivardefs": [
+
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-07-08 10:15:25",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2020-01-22 09:06:31",
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

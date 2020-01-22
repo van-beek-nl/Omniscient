@@ -1,0 +1,8 @@
+If pIsOk
+	Do method $deleteLogFile (pIdentifier)
+End If
+
+Do ivProcessingFileList.$search($ref.fileName=con(cvRotatedFilePrefix,pIdentifier,cvFileExtension),kTrue,kFalse,kFalse,kFalse)
+If ivProcessingFileList.$line>0
+	Do ivProcessingFileList.$remove(ivProcessingFileList.$line)
+End If

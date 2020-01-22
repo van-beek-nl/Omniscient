@@ -1,0 +1,25 @@
+Do FileOps.$filelist(kFileOpsIncludeFiles,ivFilePath,kFileOpsInfoName,'*.json') Returns lvLogFileList
+
+Calculate lvIgnoreFileName as con(ivFileBasename,cvFileExtension)
+
+For lvLogFileList.$line from 1 to lvLogFileList.$linecount step 1
+	Do lvLogFileList.$loadcols(lvLoopFileName)
+	
+	If lvLoopFileName=lvIgnoreFileName
+		Jump to start of loop
+	End If
+	
+	Do ivProcessingFileList.$search($ref.fileName=lvLoopFileName,kTrue,kFalse,kFalse,kFalse)
+	If ivProcessingFileList.$line>0
+		Jump to start of loop
+	End If
+	
+	Calculate lvLogFileFound as kTrue
+	Break to end of loop
+End For
+
+If lvLogFileFound
+	Quit method mid(lvLoopFileName,len(cvRotatedFilePrefix)+1,(len(lvLoopFileName)-len(cvRotatedFilePrefix))-len(cvFileExtension))
+End If
+
+Quit method

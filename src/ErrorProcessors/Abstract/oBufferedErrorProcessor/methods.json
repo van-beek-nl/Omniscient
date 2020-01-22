@@ -1,0 +1,121 @@
+[
+	{
+		"name": "$construct",
+		"ident": 1,
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$destruct",
+		"ident": 2,
+		"order": 2,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$$instantiateRequest",
+		"ident": 3,
+		"order": 3,
+		"notes": "Instantiates an Omniscient request with request worker. This request will be stored in the request buffer while it is running.",
+		"pvardefs": [
+			{
+				"name": "pIdentifier",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"desc": "The (bulk) identifier"
+			},
+			{
+				"name": "pError",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "The error(s)"
+			}
+		],
+		"lvardefs": [
+
+		],
+		"empty": true
+	},
+	{
+		"name": "$onRequestStarted",
+		"ident": 4,
+		"order": 4,
+		"notes": "Called when a request is (about to be) started. Assigns a request ID for identification purposes and adds the request to the buffer.",
+		"pvardefs": [
+			{
+				"name": "pRequest",
+				"order": 5,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1,
+				"desc": "Omniscient request"
+			},
+			{
+				"name": "pCallbackObj",
+				"order": 3,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 2,
+				"desc": "Callback object to call when the request has finished"
+			},
+			{
+				"name": "pCallbackName",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3,
+				"desc": "The method to call on the callback object"
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$onRequestFinished",
+		"ident": 0,
+		"order": 5,
+		"notes": "Called when an Omniscient request has finished. Removes the request from the buffer and calls its respective callback.",
+		"pvardefs": [
+			{
+				"name": "pRequestId",
+				"order": 5,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 1,
+				"desc": "Request identifier"
+			},
+			{
+				"name": "pResults",
+				"order": 7,
+				"type": "kRow",
+				"subtype": "",
+				"sublen": 0,
+				"param": 2,
+				"desc": "All results returned by the request"
+			}
+		],
+		"lvardefs": [
+
+		]
+	}
+]

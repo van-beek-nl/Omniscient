@@ -1,0 +1,14 @@
+Do method $getGlobalErrorHandler Returns lvInstance
+
+If isclear(lvInstance)
+	Quit method kFalse
+End If
+
+Do lvInstance.$catchError(pErrorCode,pErrorText,1) Returns lvIsHandled
+
+If lvIsHandled
+	Calculate #F as 0
+	SEA continue execution
+End If
+
+Quit method lvIsHandled

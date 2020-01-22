@@ -1,0 +1,10 @@
+Calculate lvStartTimestamp as ddiff(kCentiSecond,dat("01/01/1970"),loctoutc(#D))
+
+While lvLoopNum<pNumErrors
+	Signal error {404000+lvLoopNum,"Stress test error"}
+	Calculate lvLoopNum as lvLoopNum+1
+End While
+
+Calculate lvEndTimestamp as ddiff(kCentiSecond,dat("01/01/1970"),loctoutc(#D))
+
+Do code method cUtilities/$traceLog (con("Stress test with ",pNumErrors," errors finished in ",((lvEndTimestamp-lvStartTimestamp)/100)," seconds."))

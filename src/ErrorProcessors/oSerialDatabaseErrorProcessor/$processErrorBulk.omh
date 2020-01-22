@@ -1,0 +1,13 @@
+If isclear(pIdentifier)|isclear(pErrors)
+	Quit method kFalse
+End If
+
+Calculate lvSession as $cinst.$$session()
+Calculate lvStatement as lvSession.$newstatement()
+Do lvStatement.$execdirect("INSERT INTO omniscient (json, logIdentifier) VALUES (@[pErrors], @[pIdentifier])") Returns lvIsOk
+
+If pCallbackObj.$validref()
+	Do pCallbackObj.[pCallbackName](lvIsOk,pIdentifier)
+End If
+
+Quit method kTrue

@@ -1,0 +1,8 @@
+Calculate lvSession as $cinst.$$session()
+Calculate lvStatement as lvSession.$newstatement()
+
+If pIsOk
+	Do lvStatement.$execdirect("DELETE FROM omniscient WHERE logidentifier = @[pIdentifier]")
+Else
+	Do lvStatement.$execdirect("UPDATE omniscient SET processid = NULL WHERE logidentifier = @[pIdentifier]")
+End If

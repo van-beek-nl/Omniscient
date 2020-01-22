@@ -1,0 +1,19 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	Calculate lvErrorCode as $cwind.$objs.errorCode.$contents
+	Calculate lvErrorTitle as $cwind.$objs.errorTitle.$contents
+	Calculate lvSeverity as $cwind.$objs.errorSeverity.$line
+	Calculate lvExtraDataString as $cwind.$objs.errorExtraData.$contents
+	
+	If $cwind.$objs.includeStracktraceCheckbox.$contents=kFalse
+		Calculate lvStacktraceLinesToIgnore as -1
+	End If
+	
+	If lvSeverity<=0
+		Calculate lvSeverity as $clib.$objects.oError.$cvars.cvSeverityError
+	End If
+	
+	If not(isclear(lvExtraDataString))
+		Do lvJsonReader.$parse(lvExtraDataString,lvExtraData)
+	End If
+	
+	Do $itasks.ClientSetupExample.$Omniscient().$catchError(lvErrorCode,lvErrorTitle,lvStacktraceLinesToIgnore,lvSeverity,lvExtraData)

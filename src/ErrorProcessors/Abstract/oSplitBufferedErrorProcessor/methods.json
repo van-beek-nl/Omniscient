@@ -1,0 +1,178 @@
+[
+	{
+		"name": "$construct",
+		"ident": 1,
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$processErrorBulk",
+		"ident": 0,
+		"order": 3,
+		"notes": "Splits the received error bulk into separate errors and calls $cinst.$processError for each of them.",
+		"pvardefs": [
+			{
+				"name": "pIdentifier",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"desc": "Bulk identifier"
+			},
+			{
+				"name": "pErrors",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "Error bulk JSON body"
+			},
+			{
+				"name": "pCallbackObj",
+				"order": 3,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 3,
+				"desc": "Callback object to call when all errors have finished processing"
+			},
+			{
+				"name": "pCallbackName",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 4,
+				"desc": "Method to call on the callback object"
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvError",
+				"order": 7,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lvJson",
+				"order": 5,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvLoopNum",
+				"order": 6,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$onSplitBulkProcessStarted",
+		"ident": 3,
+		"order": 4,
+		"notes": "Adds the error bulk to the split buffer",
+		"pvardefs": [
+			{
+				"name": "pIdentifier",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"desc": "Bulk identifier"
+			},
+			{
+				"name": "pAmount",
+				"order": 2,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 2,
+				"desc": "Amount of errors in the bulk"
+			},
+			{
+				"name": "pCallbackObj",
+				"order": 3,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 3,
+				"desc": "Callback object to call when all errors have finished processing"
+			},
+			{
+				"name": "pCallbackName",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 4,
+				"desc": "Method to call on the callback object"
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$onSplitBulkProcessFinished",
+		"ident": 4,
+		"order": 5,
+		"notes": "Called when an Omniscient request finishes processing an error. Finds and updates the relevant row in the split buffer. Removes the row from the split buffer when all errors have finished and calls the original pCallbackObj from $processErrorBulk.",
+		"pvardefs": [
+			{
+				"name": "pIsOk",
+				"order": 2,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1,
+				"desc": "Whether the processing was successful"
+			},
+			{
+				"name": "pIdentifier",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "Bulk identifier"
+			},
+			{
+				"name": "pError",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3,
+				"desc": "Error JSON body"
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvJson",
+				"order": 3,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvUnprocessed",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			}
+		]
+	}
+]

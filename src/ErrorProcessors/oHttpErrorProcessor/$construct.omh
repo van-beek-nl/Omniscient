@@ -1,0 +1,9 @@
+If len(pEndpointUrl)<=0
+	Signal error {404,'oHttpErrorProcessor: One or more required parameters are missing. HTTP logging will be disabled for this session.'}
+	Quit method
+End If
+
+Calculate ivEndpointUrl as pEndpointUrl
+Calculate ivRequestMethod as pRequestMethod
+
+Do inherited

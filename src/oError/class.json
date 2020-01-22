@@ -1,0 +1,87 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 192,
+	"designtaskname": "",
+	"cvardefs": [
+		{
+			"name": "cvJsonWriter",
+			"order": 9,
+			"type": "kObject",
+			"subtype": ".jsoncpp.JSON\\StyledWriter",
+			"sublen": 0,
+			"desc": "JSON writer to write the error data to text."
+		},
+		{
+			"name": "cvSeverityDebug",
+			"order": 5,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0,
+			"initval": "5",
+			"desc": "Debug level severity constant."
+		},
+		{
+			"name": "cvSeverityError",
+			"order": 1,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0,
+			"initval": "2",
+			"desc": "Error level severity constant."
+		},
+		{
+			"name": "cvSeverityFatal",
+			"order": 4,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0,
+			"initval": "1",
+			"desc": "Fatal level severity constant."
+		},
+		{
+			"name": "cvSeverityInfo",
+			"order": 3,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0,
+			"initval": "4",
+			"desc": "Info level severity constant."
+		},
+		{
+			"name": "cvSeverityWarn",
+			"order": 2,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0,
+			"initval": "3",
+			"desc": "Warning level severity constant."
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ivJson",
+			"order": 10,
+			"type": "kObjectref",
+			"subtype": ".jsoncpp.JSON\\Value",
+			"sublen": 0,
+			"initval": "$extobjects.jsoncpp.$objects.Value.$newref()",
+			"desc": "The error's JSON body."
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2018-11-07 14:16:12",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2020-01-21 11:32:24",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

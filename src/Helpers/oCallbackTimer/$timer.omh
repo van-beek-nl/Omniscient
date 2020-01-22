@@ -1,0 +1,6 @@
+If ivCallbackObj.$validref()
+	Do ivCallbackObj.[ivCallbackMethodName]
+	Quit method kTrue
+End If
+
+Quit method kFalse

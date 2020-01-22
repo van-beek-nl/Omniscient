@@ -1,0 +1,7 @@
+Do cvJsonWriter.$write(ivJson) Returns lvRequestBody
+
+If not(pPretty)
+	Calculate lvRequestBody as replaceall(replaceall(lvRequestBody,kCr,""),kLf,"")
+End If
+
+Quit method lvRequestBody

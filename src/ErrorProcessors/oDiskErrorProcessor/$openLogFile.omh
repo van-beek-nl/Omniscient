@@ -1,0 +1,26 @@
+If ivFileOps.$isopen()
+	Do ivFileOps.$closefile()
+End If
+
+Calculate lvLogFilePath as con(ivFilePath,ivFileBasename,cvFileExtension)
+
+;  Open or create log file
+If FileOps.$doesfileexist(lvLogFilePath)
+	Do ivFileOps.$openfile(lvLogFilePath)
+	Calculate ivFileIsNew as ivFileOps.$getfilesize()<=0
+Else
+	Do ivFileOps.$createfile(lvLogFilePath)
+	Calculate ivFileIsNew as kTrue
+	;  Do ivFileOps.$writecharacter(kUniTypeAnsiLatin1,con("[",kCr,kLf))
+End If
+
+If not(ivFileIsNew)
+	Do ivFileOps.$readcharacter(kUniTypeAnsiLatin1,lvErrorString)
+	Calculate lvErrorString as con("[",lvErrorString,"]")
+	Do cvJsonParser.$parse(lvErrorString,lvErrors)
+	If lvErrors.$isarray()
+		Calculate ivNumErrorsInLog as lvErrors.$size()
+	Else
+		Breakpoint
+	End If
+End If

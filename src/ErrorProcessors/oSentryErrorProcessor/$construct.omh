@@ -1,0 +1,9 @@
+If len(pHostname)<=0|len(pPubKey)<=0|len(pProjectId)<=0
+	Signal error {404,'Sentry: One or more parameters required for Sentry access are empty. Sentry logging will be disabled for this session.'}
+	Quit method
+End If
+
+Calculate ivProjectId as pProjectId
+Calculate ivPubKey as pPubKey
+
+Do $inherited.$construct(con("https://",pHostname,"/api/",pProjectId,"/store/"),kOW3httpMethodPost)

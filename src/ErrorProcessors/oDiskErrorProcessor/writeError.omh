@@ -1,0 +1,27 @@
+;  If not(pWriteRaw)
+;  Replace carriage returns and line feeds with \r or \n respectively (one error per line in the file)
+;  Calculate pError as replaceall(pError,kCr,"\r")
+;  Calculate pError as replaceall(pError,kLf,"\n")
+;  End If
+
+;  Rotate logs early if currently open log file is now larger than 256 MB (256.000.000 bytes)
+If ivFileOps.$getfilesize()>=lvMaxFileSize|ivNumErrorsInLog>=cvMaxErrorsInLog
+	Do method $rotateLog
+End If
+
+If pIsBulk
+	Calculate pError as mid(pError,2,len(pError)-2)
+End If
+
+;  Append a comma and /r/n to end of previous line if the file was previously written to
+If not(ivFileIsNew)
+	Calculate pError as con(",",kCr,kLf,pError)
+Else
+	Calculate ivFileIsNew as kFalse
+End If
+
+;  Write error to currently open file
+Do ivFileOps.$writecharacter(kUniTypeAnsiLatin1,pError,kTrue) Returns lvIsOk
+Calculate ivNumErrorsInLog as ivNumErrorsInLog+1
+
+Quit method lvIsOk

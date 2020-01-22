@@ -1,0 +1,5 @@
+Do method writeError (pErrors)
+
+If pCallbackObj.$validref()
+	Do pCallbackObj.[pCallbackName](kTrue,pIdentifier)
+End If

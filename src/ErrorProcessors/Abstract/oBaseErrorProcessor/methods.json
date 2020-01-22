@@ -1,0 +1,207 @@
+[
+	{
+		"name": "$construct",
+		"ident": 1,
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$destruct",
+		"ident": 2,
+		"order": 2,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$getName",
+		"ident": 8,
+		"order": 3,
+		"notes": "Returns the processor's name. Used primarily for trace logging.",
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$processError",
+		"ident": 0,
+		"order": 4,
+		"notes": "Stores a singular error body in the error processor. Generally used to store errors in the source processor when they are first received by Omniscient.",
+		"pvardefs": [
+			{
+				"name": "pIdentifier",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"desc": "The error's identifier, if any"
+			},
+			{
+				"name": "pError",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "The error JSON body"
+			},
+			{
+				"name": "pCallbackObj",
+				"order": 2,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 3,
+				"desc": "The callback object instance to call when finished"
+			},
+			{
+				"name": "pCallbackName",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 4,
+				"desc": "The callback method to call on the instance"
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$processErrorBulk",
+		"ident": 3,
+		"order": 5,
+		"notes": "Stores a bulk of errors in the error processor. Generally used by Omniscient to bulk store errors in the source that were unsuccessfully processed by the target processor.",
+		"pvardefs": [
+			{
+				"name": "pIdentifier",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"desc": "The bulk's identifier"
+			},
+			{
+				"name": "pErrors",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "The error bulk JSON body"
+			},
+			{
+				"name": "pCallbackObj",
+				"order": 2,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 3,
+				"desc": "The callback object instance to call when finished"
+			},
+			{
+				"name": "pCallbackName",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 4,
+				"desc": "The callback method to call on the instance"
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$fetchErrorBulk",
+		"ident": 5,
+		"order": 6,
+		"notes": "Fetches a stored bulk of error bodies from the error processor, along with their identifier. Generally used by Omniscient to fetch an error bulk from the source processor to send to the target processor.",
+		"pvardefs": [
+			{
+				"name": "pCallbackObj",
+				"order": 1,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1,
+				"desc": "The callback object instance to call when finished"
+			},
+			{
+				"name": "pCallbackName",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "The callback method to call on the instance"
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$onErrorBulkProcessed",
+		"ident": 6,
+		"order": 7,
+		"notes": "Called on the source processor by Omniscient when the target processor has finished processing a given error bulk. Generally used to delete the bulk from the source processor if Omniscient was successful, and to undo any locking that may have been done to the source bulk.",
+		"pvardefs": [
+			{
+				"name": "pIdentifier",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"desc": "The bulk's identifier"
+			},
+			{
+				"name": "pIsOk",
+				"order": 2,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 2,
+				"desc": "Whether the target was successful"
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$setOmnisIdentifier",
+		"ident": 4,
+		"order": 8,
+		"notes": "Sets Omnis' identifier, to be sent along with requests in certain error processors for identification purposes.",
+		"pvardefs": [
+			{
+				"name": "pOmnisIdentifier",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+
+		]
+	}
+]

@@ -1,0 +1,50 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 48,
+	"superclass": "oHttpErrorProcessor",
+	"designtaskname": "",
+	"cvardefs": [
+		{
+			"name": "cvSentryVersion",
+			"order": 3,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "\"7\"",
+			"desc": "Sentry API version."
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ivProjectId",
+			"order": 5,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"desc": "The project ID provided by Sentry."
+		},
+		{
+			"name": "ivPubKey",
+			"order": 8,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2019-06-04 07:52:12",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2019-07-09 08:34:22",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

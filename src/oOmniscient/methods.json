@@ -1,0 +1,573 @@
+[
+	{
+		"name": "$construct",
+		"ident": 1,
+		"order": 1,
+		"pvardefs": [
+			{
+				"name": "pSourceErrorProcessor",
+				"order": 3,
+				"type": "kObjectref",
+				"subtype": "oBaseErrorProcessor",
+				"sublen": 0,
+				"param": 1,
+				"desc": "The source error processor. Errors caught by $catchError are sent to and fetched from here."
+			},
+			{
+				"name": "pTargetErrorProcessor",
+				"order": 4,
+				"type": "kObjectref",
+				"subtype": "oBaseErrorProcessor",
+				"sublen": 0,
+				"param": 2,
+				"desc": "The target error processor. Errors fetched from the source error processor are sent here."
+			},
+			{
+				"name": "pProcessingAutoResets",
+				"order": 2,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 3,
+				"initval": "kFalse",
+				"desc": "Whether to automatically loop and check for errors in the source. Can be used to automatically check the source for new errors periodically on the server-side."
+			},
+			{
+				"name": "pProcessingTimerValue",
+				"order": 1,
+				"type": "kNumber",
+				"subtype": "k0dp",
+				"sublen": 0,
+				"param": 4,
+				"initval": "5000",
+				"desc": "Number of milliseconds to wait after an error was caught or a bulk was processed before processing the next error bulk."
+			},
+			{
+				"name": "pErrorClass",
+				"order": 6,
+				"type": "kItemref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 5,
+				"desc": "Custom error class to use instead of oError."
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvTraceLogMsg",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			}
+		]
+	},
+	{
+		"name": "$destruct",
+		"ident": 2,
+		"order": 2,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$setGlobalErrorHandler",
+		"ident": 0,
+		"order": 3,
+		"notes": "Set Omniscient instance to be used in $catchGlobalError",
+		"pvardefs": [
+			{
+				"name": "pOmniscient",
+				"order": 1,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$getGlobalErrorHandler",
+		"ident": 3,
+		"order": 4,
+		"notes": "Gets the global error handler instance, to be used in $catchGlobalError.",
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$catchGlobalError",
+		"ident": 16,
+		"order": 5,
+		"notes": "Global error handler. Can be used if you haven't defined any custom error handler yourself.",
+		"pvardefs": [
+			{
+				"name": "pErrorCode",
+				"order": 1,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 1
+			},
+			{
+				"name": "pErrorText",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvInstance",
+				"order": 4,
+				"type": "kObjectref",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lvIsHandled",
+				"order": 3,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"initval": "kFalse"
+			}
+		]
+	},
+	{
+		"name": "$setUserInfo",
+		"ident": 19,
+		"order": 6,
+		"notes": "Sets the user information to be logged with errors. All parameters are optional.",
+		"pvardefs": [
+			{
+				"name": "pUserId",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pUserName",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pUserEmail",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$setApplicationInfo",
+		"ident": 8,
+		"order": 7,
+		"notes": "Sets the application information to be included in the logged errors. Define either both parameters to set/replace, or leave both empty to clear application information.",
+		"pvardefs": [
+			{
+				"name": "pApplicationName",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1,
+				"desc": "The name of the application in which Omniscient is integrated."
+			},
+			{
+				"name": "pApplicationVersion",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "The version of the application in which Omniscient is integrated."
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "------ Error handling",
+		"ident": 6,
+		"order": 8,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		],
+		"empty": true
+	},
+	{
+		"name": "$catchError",
+		"ident": 5,
+		"order": 9,
+		"notes": "Catches an exception and handles it appropriately.",
+		"pvardefs": [
+			{
+				"name": "pErrorCode",
+				"order": 1,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 1,
+				"desc": "The error's code."
+			},
+			{
+				"name": "pErrorText",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "The error's description."
+			},
+			{
+				"name": "pNumStackLinesToIgnore",
+				"order": 6,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 3,
+				"initval": "0",
+				"desc": "The amount of lines in the stack trace BEFORE this method to exclude from logged errors. Can be used to exclude your own error handler's methods from the logged stack trace. Set this to -1 to ignore *all* lines (i.e. have no stacktrace included in the rep"
+			},
+			{
+				"name": "pSeverity",
+				"order": 7,
+				"type": "kInteger",
+				"subtype": "kShortint",
+				"sublen": 0,
+				"param": 4,
+				"desc": "The error's severity. Possible values are stored in the oError class variables as constants."
+			},
+			{
+				"name": "pExtraData",
+				"order": 8,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 5,
+				"desc": "Additional data to send to Sentry, if any. This field reference will be included if it references a string, list, or jsoncpp Value object."
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvError",
+				"order": 3,
+				"type": "kObjectref",
+				"subtype": "oError",
+				"sublen": 0,
+				"desc": "The caught exception."
+			},
+			{
+				"name": "lvSeverity",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lvShouldHandle",
+				"order": 4,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"desc": "Whether the exception should be handled or not."
+			}
+		]
+	},
+	{
+		"name": "handleSourceErrors",
+		"ident": 14,
+		"order": 10,
+		"notes": "Sends the error bulk pErrors identified by bulk identifier pIdentifier to the target error processor.",
+		"pvardefs": [
+			{
+				"name": "pIdentifier",
+				"order": 10,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pErrors",
+				"order": 11,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvError",
+				"order": 2,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvErrorBody",
+				"order": 8,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lvErrorBulk",
+				"order": 1,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvErrorLineNum",
+				"order": 4,
+				"type": "kItemref",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lvFoundError",
+				"order": 5,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"initval": "kFalse"
+			},
+			{
+				"name": "lvIsOk",
+				"order": 9,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			},
+			{
+				"name": "lvLoopNum",
+				"order": 3,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0
+			},
+			{
+				"name": "lvTest",
+				"order": 7,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			}
+		]
+	},
+	{
+		"name": "startProcessingCountdown",
+		"ident": 9,
+		"order": 11,
+		"notes": "Stops, resets and starts the processing timer.",
+		"pvardefs": [
+			{
+				"name": "pTimerValue",
+				"order": 1,
+				"type": "kNumber",
+				"subtype": "k0dp",
+				"sublen": 0,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "------ Events",
+		"ident": 4,
+		"order": 12,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		],
+		"empty": true
+	},
+	{
+		"name": "$onSourceProcessed",
+		"ident": 18,
+		"order": 13,
+		"notes": "(Re)starts the processing countdown after the source has processed an error.\rAlso resets the timer multiplier to reset how fast Omniscient will retry after failed uploads to the target processor.",
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$onProcessCountdownFinished",
+		"ident": 10,
+		"order": 14,
+		"notes": "Starts processing by fetching an error bulk from the source for processing.",
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "lvErrorBodies",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			}
+		]
+	},
+	{
+		"name": "$onSourceBulkFetched",
+		"ident": 15,
+		"order": 15,
+		"notes": "Process the error bulk found in the source processor.",
+		"pvardefs": [
+			{
+				"name": "pIsOk",
+				"order": 3,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1
+			},
+			{
+				"name": "pIdentifier",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pErrors",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$onTargetProcessed",
+		"ident": 11,
+		"order": 16,
+		"notes": "Called when the target processor has finished processing the sent error bulk.",
+		"pvardefs": [
+			{
+				"name": "pIsOk",
+				"order": 11,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1
+			},
+			{
+				"name": "pIdentifier",
+				"order": 7,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pUnprocessedErrors",
+				"order": 8,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "------ Testing",
+		"ident": 7,
+		"order": 17,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		],
+		"empty": true
+	},
+	{
+		"name": "$stressTest",
+		"ident": 13,
+		"order": 18,
+		"notes": "Stresses the error logging system by throwing lots of errors at once.\rHandy for testing performance.",
+		"pvardefs": [
+			{
+				"name": "pNumErrors",
+				"order": 1,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 1,
+				"initval": "100",
+				"desc": "Amount of errors to throw."
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvEndTimestamp",
+				"order": 2,
+				"type": "kNumber",
+				"subtype": "k2dp",
+				"sublen": 0,
+				"desc": "The unix timestamp of when the stress test finished."
+			},
+			{
+				"name": "lvLoopNum",
+				"order": 3,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"desc": "Integer used for looping."
+			},
+			{
+				"name": "lvStartTimestamp",
+				"order": 4,
+				"type": "kNumber",
+				"subtype": "k2dp",
+				"sublen": 0,
+				"desc": "The unix timestamp of when the stress test started."
+			}
+		]
+	}
+]

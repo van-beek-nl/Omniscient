@@ -1,0 +1,114 @@
+[
+	{
+		"name": "$isRunning",
+		"ident": 5,
+		"order": 3,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$start",
+		"ident": 6,
+		"order": 5,
+		"pvardefs": [
+			{
+				"name": "pCallbackObj",
+				"order": 1,
+				"type": "kItemref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1,
+				"desc": "The instance that contains the callback method."
+			},
+			{
+				"name": "pCallbackName",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2,
+				"desc": "The name of the method that will be called when this request succeeds."
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$completed",
+		"ident": 3,
+		"order": 6,
+		"pvardefs": [
+			{
+				"name": "pResults",
+				"order": 1,
+				"type": "kRow",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1,
+				"desc": "The results returned from the HTTP request."
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lvErrorCode",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "An internal error code. Filled if something went wrong with the oSentryRequestWorker itself."
+			},
+			{
+				"name": "lvErrorInfo",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "Internal error description. Filled if something went wrong with the oSentryRequestWorker itself."
+			},
+			{
+				"name": "lvHeaderText",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "Can be filled with Sentry's response if Sentry rejects the request. Used for debugging purposes."
+			},
+			{
+				"name": "lvHttpStatusCode",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "The HTTP status code returned by Sentry."
+			},
+			{
+				"name": "lvHttpStatusText",
+				"order": 6,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "The HTTP status text returned by Sentry."
+			},
+			{
+				"name": "lvIsOk",
+				"order": 8,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			},
+			{
+				"name": "lvResponseHeaders",
+				"order": 7,
+				"type": "kRow",
+				"subtype": "",
+				"sublen": 0,
+				"desc": "The headers of the response returned by Sentry. Contains an error message if applicable."
+			}
+		]
+	}
+]

@@ -1,0 +1,10 @@
+Do ivRequestBuffer.$search($ref.requestId=pRequestId,kTrue,kFalse,kFalse,kFalse)
+
+If ivRequestBuffer.$line>0
+	If not(isclear(ivRequestBuffer.callbackObject))
+		;  Important: converts the results row to individual parameters and calls the callback with those parameters
+		Do code method cUtilities/$callWithRowArgs (ivRequestBuffer.callbackObject,ivRequestBuffer.callbackName,pResults)
+	End If
+	
+	Do ivRequestBuffer.$remove(ivRequestBuffer.$line)
+End If

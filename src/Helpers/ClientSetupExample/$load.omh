@@ -1,0 +1,12 @@
+;  Instantiate error processor instances
+Do $clib.$objects.oDiskErrorProcessor.$newref() Returns cvDiskErrorProcessor
+Do $clib.$objects.oBufferedDatabaseErrorProcessor.$newref("127.0.0.1","omniscient","postgres","123") Returns cvBufferedDatabaseErrorProcessor
+
+;  Create and init Omniscient
+Do $clib.$objects.oOmniscient.$newref(cvDiskErrorProcessor,cvBufferedDatabaseErrorProcessor) Returns cvOmniscient
+Do cvOmniscient.$setUserInfo(1,"example username","email@example.com")
+Do cvOmniscient.$setApplicationInfo("your-app-name","0.0.0")
+
+;  Set as error handler
+Do code method oOmniscient/$setGlobalErrorHandler (cvOmniscient)
+Load error handler oOmniscient/$catchGlobalError

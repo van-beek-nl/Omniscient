@@ -1,0 +1,9 @@
+Calculate lvSession as $cinst.$$session()
+Calculate lvStatement as lvSession.$newstatement()
+Do lvStatement.$execdirect("select pg_backend_pid();") Returns lvIsOk
+
+If lvIsOk
+	Do lvStatement.$fetch(lvResult)
+	Quit method lvResult.C1
+End If
+Quit method kFalse

@@ -1,0 +1,34 @@
+;  Make sure the old logs are closed
+If ivFileOps.$isopen()
+	Do ivFileOps.$closefile()
+End If
+
+If isclear(pLogFilesPath)
+	;  Get library path
+	Do FileOps.$splitpathname($clib.$pathname,lvDrivePath,lvDirectoryPath,,)
+	
+	;  Determine log file path and basename
+	Calculate lvSubdirectoryPath as con(cvDefaultLogDirectoryName,sys(9))
+	Calculate pLogFilesPath as con(lvDrivePath,lvDirectoryPath,lvSubdirectoryPath)
+Else
+	If not(right(pLogFilesPath,1)=sys(9))
+		Calculate pLogFilesPath as con(pLogFilesPath,sys(9))
+	End If
+	
+	Do FileOps.$splitpathname(pLogFilesPath,lvDrivePath,lvDirectoryPath,,)
+	
+	If isclear(lvDrivePath)
+		;  Get library path
+		Do FileOps.$splitpathname($clib.$pathname,lvDrivePath,lvDirectoryPath,,)
+		Calculate pLogFilesPath as con(lvDrivePath,lvDirectoryPath,pLogFilesPath)
+	End If
+End If
+
+;  Determine log file path and basename
+Calculate ivFilePath as pLogFilesPath
+
+;  Create required subdirectories to create new log file
+Do method createLogPathDirectories (pLogFilesPath)
+
+;  Create/open new log file
+Do method $openLogFile
