@@ -1,6 +1,6 @@
 {
 	"ident": 1025,
-	"order": 5,
+	"order": 6,
 	"objtype": "kCheckbox",
 	"properties": {
 		"active": true,

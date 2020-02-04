@@ -3,6 +3,7 @@ On evClick     ;; Event Parameters - pRow( Itemreference )
 	Calculate lvErrorTitle as $cwind.$objs.errorTitle.$contents
 	Calculate lvSeverity as $cwind.$objs.errorSeverity.$line
 	Calculate lvExtraDataString as $cwind.$objs.errorExtraData.$contents
+	Calculate lvFingerprintString as $cwind.$objs.errorFingerprint.$contents
 	
 	If $cwind.$objs.includeStracktraceCheckbox.$contents=kFalse
 		Calculate lvStacktraceLinesToIgnore as -1
@@ -16,4 +17,8 @@ On evClick     ;; Event Parameters - pRow( Itemreference )
 		Do lvJsonReader.$parse(lvExtraDataString,lvExtraData)
 	End If
 	
-	Do $itasks.ClientSetupExample.$Omniscient().$catchError(lvErrorCode,lvErrorTitle,lvStacktraceLinesToIgnore,lvSeverity,lvExtraData)
+	If not(isclear(lvFingerprintString))
+		Do lvJsonReader.$parse(lvFingerprintString,lvFingerprint)
+	End If
+	
+	Do $itasks.ClientSetupExample.$Omniscient().$catchError(lvErrorCode,lvErrorTitle,lvStacktraceLinesToIgnore,lvSeverity,lvExtraData,lvFingerprint)

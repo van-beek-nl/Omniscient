@@ -36,6 +36,20 @@
 				"sublen": 100000000
 			},
 			{
+				"name": "lvFingerprint",
+				"order": 10,
+				"type": "kObject",
+				"subtype": ".jsoncpp.JSON\\Value",
+				"sublen": 0
+			},
+			{
+				"name": "lvFingerprintString",
+				"order": 9,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
 				"name": "lvJsonReader",
 				"order": 6,
 				"type": "kObject",
@@ -56,13 +70,6 @@
 				"subtype": "k32bitint",
 				"sublen": 0,
 				"initval": "0"
-			},
-			{
-				"name": "lvTest",
-				"order": 5,
-				"type": "kCharacter",
-				"subtype": "kSimplechar",
-				"sublen": 100000000
 			}
 		]
 	}

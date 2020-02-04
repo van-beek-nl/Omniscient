@@ -1,6 +1,6 @@
 {
 	"classtype": "kObjectclass",
-	"internalversion": 375,
+	"internalversion": 380,
 	"designtaskname": "",
 	"cvardefs": [
 		{
@@ -17,7 +17,7 @@
 			"type": "kCharacter",
 			"subtype": "kSimplechar",
 			"sublen": 100000000,
-			"initval": "\"1.1.0\"",
+			"initval": "\"1.2.0\"",
 			"desc": "Omniscient version, used to identify the SDK in Sentry."
 		}
 	],
@@ -128,7 +128,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2020-01-21 11:13:13",
+		"moddate": "2020-02-04 14:03:57",
 		"selfcontained": false,
 		"showascheckedout": false,
 		"userinfo": "",

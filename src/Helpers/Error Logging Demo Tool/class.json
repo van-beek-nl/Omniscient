@@ -1,6 +1,6 @@
 {
 	"classtype": "kWindow",
-	"internalversion": 28,
+	"internalversion": 29,
 	"designtaskname": "OmniscientConfigurationExample",
 	"nextident": 1021,
 	"lastgroupident": 0,
@@ -53,7 +53,7 @@
 		"menunames": "",
 		"minimizebox": false,
 		"minimizeiconid": 2006,
-		"moddate": "2020-01-20 11:14:33",
+		"moddate": "2020-02-04 13:58:00",
 		"modelessdata": true,
 		"showascheckedout": false,
 		"showcommands": false,

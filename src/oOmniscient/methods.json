@@ -272,6 +272,15 @@
 				"sublen": 0,
 				"param": 5,
 				"desc": "Additional data to send to Sentry, if any. This field reference will be included if it references a string, list, or jsoncpp Value object."
+			},
+			{
+				"name": "pFingerprint",
+				"order": 9,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 6,
+				"desc": "A list or json-cpp Value object containing a list of strings used for grouping errors."
 			}
 		],
 		"lvardefs": [

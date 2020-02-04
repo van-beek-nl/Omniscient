@@ -1,0 +1,21 @@
+If isclear(pFingerprint)
+	Quit method kFalse
+End If
+
+If pFingerprint.$type=kList
+	If pFingerprint.$colcount=1&pFingerprint.$cols.$first().$coltype=kCharacter
+		For pFingerprint.$line from 1 to pFingerprint.$linecount step 1
+			Do ivJson.$get("fingerprint").$get(pFingerprint.$line).$set(pFingerprint.C1)
+		End For
+		Quit method kTrue
+	End If
+Else If pFingerprint.$type=kObject
+	If pFingerprint.$valuetolist.$cando()
+		If pFingerprint.$isarray()=kTrue
+			Do ivJson.$get("fingerprint").$set(pFingerprint.$root())
+			Quit method kTrue
+		End If
+	End If
+End If
+
+Quit method kFalse

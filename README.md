@@ -39,7 +39,7 @@ With Omniscient you can be pretty sure that most if not all of the errors encoun
 
 ### Installing
 
-1) Download the latest release for your Omnis Studio version from the [releases](https://github.com/VanBeek/omniscient/releases/) page.
+1) Download the latest release for your Omnis Studio version from the [releases](https://github.com/van-beek-nl/omniscient/releases/) page.
 2) The download will include an exported Omnis Studio library. Import the library.
 3) Instantiate any desired error processors with the desired parameters:
 ```

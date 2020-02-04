@@ -1,3 +1,7 @@
+If isclear(pExtraData)
+	Quit method
+End If
+
 If pExtraData.$type=kCharacter
 	Do ivJson.$get("extra").$get("message").$set(pExtraData)
 Else If pExtraData.$type=kList

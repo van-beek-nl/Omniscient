@@ -328,9 +328,29 @@
 		]
 	},
 	{
+		"name": "$setFingerprint",
+		"ident": 15,
+		"order": 10,
+		"notes": "Sets the error's fingerprint. A fingerprint is a string or collection of strings with which the errors will be grouped in Sentry.\rFor more information and a list of built-in Sentry values, see https://docs.sentry.io/data-management/event-grouping/sdk-fingerprinting/",
+		"pvardefs": [
+			{
+				"name": "pFingerprint",
+				"order": 1,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1,
+				"desc": "A list or json-cpp Value object containing a list of strings used for grouping errors."
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
 		"name": "------ Private",
 		"ident": 9,
-		"order": 10,
+		"order": 11,
 		"pvardefs": [
 
 		],
@@ -342,7 +362,7 @@
 	{
 		"name": "populateRequiredAttributes",
 		"ident": 5,
-		"order": 11,
+		"order": 12,
 		"notes": "Populates ivJson with all attributes required for a Sentry request.",
 		"pvardefs": [
 			{
@@ -400,7 +420,7 @@
 	{
 		"name": "populateOptionalAttributes",
 		"ident": 6,
-		"order": 12,
+		"order": 13,
 		"pvardefs": [
 			{
 				"name": "pUserId",
@@ -461,7 +481,7 @@
 	{
 		"name": "populateStacktrace",
 		"ident": 7,
-		"order": 13,
+		"order": 14,
 		"pvardefs": [
 			{
 				"name": "pMethodStack",
@@ -553,7 +573,7 @@
 	{
 		"name": "encodeString",
 		"ident": 13,
-		"order": 14,
+		"order": 15,
 		"pvardefs": [
 			{
 				"name": "pString",
@@ -571,7 +591,7 @@
 	{
 		"name": "------ Properties",
 		"ident": 8,
-		"order": 15,
+		"order": 16,
 		"pvardefs": [
 
 		],
@@ -583,7 +603,7 @@
 	{
 		"name": "$eventId",
 		"ident": 10,
-		"order": 16,
+		"order": 17,
 		"pvardefs": [
 
 		],
